@@ -13,7 +13,7 @@ import com.ww.visualexp.repository.SampleDataRepo;
  *
  */
 @Service
-public class MongoDataService {
+public class SmapleMongoDataService {
 
 	@Autowired
 	SampleDataRepo dataRepoFacade;

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ww.visualexp.service.MongoDataService;
+import com.ww.visualexp.service.SmapleMongoDataService;
 
 /**
  * @author chandrashekarv
@@ -18,10 +18,10 @@ import com.ww.visualexp.service.MongoDataService;
  */
 @RestController
 @RequestMapping("/mongo/add")
-public class MongoDataController {
+public class SampleMongoDataController {
 
 	@Autowired
-	MongoDataService mongoDataService;
+	SmapleMongoDataService mongoDataService;
 
 	@GetMapping("/all")
 	public Object addSampleDataAll() {
