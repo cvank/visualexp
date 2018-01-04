@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ww.visualexp.domain.UserRequest;
 import com.ww.visualexp.domain.VisualExpResponse;
 import com.ww.visualexp.entity.User;
+import com.ww.visualexp.entity.UserGroup;
+import com.ww.visualexp.service.GroupService;
 import com.ww.visualexp.service.UserService;
 
 /**
@@ -21,12 +23,13 @@ import com.ww.visualexp.service.UserService;
  *
  */
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/groups")
 @CrossOrigin("*")
-public class UserController {
+public class UserGroupController {
+
 
 	@Autowired
-	UserService userservice;
+	GroupService groupService;
 	
 	/**
 	 * Populate landign page.
@@ -34,44 +37,25 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("/all")
-	public List<User> loadAllUsers() {
-		return userservice.allUsers();
+	public List<UserGroup> loadAllUsers() {
+		return groupService.allGroups();
 	}
-
-	/**
-	 * Add users to group.
-	 * 
-	 * @param userRequest
-	 * @return
-	 */
+	
 	@RequestMapping("/add")
-	public VisualExpResponse addUser(@RequestBody UserRequest userRequest) {
+	public VisualExpResponse addUserGroup(@RequestBody UserRequest userRequest) {
 
 		return null;
 	}
 
-	/**
-	 * Remove user.
-	 * 
-	 * @param userRequest
-	 * @return
-	 */
 	@RequestMapping("/remove")
-	public VisualExpResponse removeUser(@RequestBody UserRequest userRequest) {
+	public VisualExpResponse removeUserGroup(@RequestBody UserRequest userRequest) {
 
 		return null;
 	}
 
-	/**
-	 * Modify existing user.
-	 * 
-	 * @param userRequest
-	 * @return
-	 */
 	@RequestMapping("/modify")
-	public VisualExpResponse modifyUser(@RequestBody UserRequest userRequest) {
+	public VisualExpResponse modifyUserGroup(@RequestBody UserRequest userRequest) {
 
 		return null;
 	}
-
 }

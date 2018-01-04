@@ -3,20 +3,31 @@
  */
 package com.ww.visualexp.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ww.visualexp.domain.TransactionRequest;
 import com.ww.visualexp.domain.VisualExpResponse;
+import com.ww.visualexp.entity.Transaction;
+import com.ww.visualexp.service.TransactionService;
 
 /**
  * @author chandrashekarv
  *
  */
-@Controller
+@RestController
 @RequestMapping("/transaction")
+@CrossOrigin("*")
 public class TransactionController {
+
+	@Autowired
+	TransactionService transactionService;
 
 	/**
 	 * Populate Transaction Page Landing details.
@@ -24,10 +35,9 @@ public class TransactionController {
 	 * @param transactionRequest
 	 * @return
 	 */
-	@RequestMapping("/")
-	public Object allTrasnactions(@RequestBody TransactionRequest transactionRequest) {
-
-		return null;
+	@RequestMapping("/all")
+	public List<Transaction> allTrasnactions() {
+		return transactionService.allTransactions();
 	}
 
 	@RequestMapping("/add")
